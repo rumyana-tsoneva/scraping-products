@@ -29,7 +29,7 @@ class ProductsSpider(scrapy.Spider):
     def parse_subcategory( self, response ):
 
         result = response.meta['result']
-        products =  response.xpath("/html/body/div[@id='vue']/main//div[@class='product-item']//a/@href").getall()[:2]
+        products =  response.xpath("/html/body/div[@id='vue']/main//div[@class='product-item']//a/@href").getall()
 
         for product_url in products:        
             result['product'] = product_url

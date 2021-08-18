@@ -32,7 +32,7 @@ class ProductPipeline(object):
         col = ",".join(item.keys())       
         placeholders = ",".join(len(item) * "?")
         values = list(item.values())
-        sql = "INSERT INTO products({}) VALUES({})"
+        sql = "INSERT OR REPLACE INTO products({}) VALUES({})"
         self.cur.execute(sql.format(col, placeholders), values)
 
         return item
